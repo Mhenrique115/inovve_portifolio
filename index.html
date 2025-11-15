@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovve - Portfólio de Festas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="assets/imgs/Logo PNG INOVVE N.png" alt="Inovve Logo" class="logo-text">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="assets/imgs/logo inovve som e iluminação sem N2.png" alt="Inovve Logo" class="hero-title">
+            <p class="hero-subtitle">Transformando Momentos em Memórias Inesquecíveis</p>
+            <a href="#portfolio" class="cta-button">Conheça Nosso Portfólio</a>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Portfolio Section with Carousel -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Nosso Portfólio</h2>
+            <p class="section-subtitle">Confira alguns dos nossos melhores trabalhos</p>
+
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner" id="carouselInner">
+                        <!-- Items will be inserted here by JavaScript -->
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-btn carousel-btn-prev" id="prevBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn carousel-btn-next" id="nextBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <!-- Dots Navigation -->
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+
+                <!-- Pause Button -->
+                <button class="carousel-pause-btn" id="pauseBtn" onclick="toggleCarouselPause()">
+                    Pausar
+                </button>
+
+                <!-- Counter -->
+                <div class="carousel-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre a Inovve</h2>
+                    <p class="about-description">
+                        A Inovve é uma empresa especializada em criar experiências únicas e memoráveis. Com mais de uma década de experiência, transformamos cada evento em uma celebração extraordinária, combinando criatividade, elegância e atenção aos detalhes.
+                    </p>
+                    <p class="about-description">
+                        Nosso time de profissionais dedicados trabalha incansavelmente para garantir que cada festa seja perfeita. Desde o planejamento inicial até a execução final, cuidamos de tudo para que você possa aproveitar cada momento ao máximo.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">✨</div>
+                            <h3>Criatividade</h3>
+                            <p>Ideias inovadoras e soluções personalizadas, transformamos imaginação em resultados reais.</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Precisão</h3>
+                            <p>Compromisso com cada detalhe, nosso cuidado minucioso garante resultados consistentes e confiáveis.</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💎</div>
+                            <h3>Qualidade</h3>
+                            <p>Excelência em tudo que fazemos, nosso foco é nos detalhes, na melhoria contínua e na entrega de resultados que superem as expectativas de nossos clientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Vamos transformar seu evento em algo extraordinário</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>Telefone</h3>
+                        <p>
+                            <a href="tel:+5532988014963">032 98801 4963</a> 
+                            <br> 
+                            <a href="tel:+5532988245186">032 98824 5186</a>
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:Marcos.v.1985@live.com">Marcos.v.1985@live.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Redes Sociais</h3>
+                        <div class="social-links">
+                            <a target="_blank" href="https://www.instagram.com/inovve_/" class="social-link">Instagram</a>
+                            <a target="_blank" href="https://www.facebook.com/djmarcos.vinicius.7" class="social-link">Facebook</a>
+                            <a target="_blank" href="https://wa.me/5532988014963?text=Tenho+interesse" class="social-link">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Inovve - Portfólio de Festas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/carousel.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
