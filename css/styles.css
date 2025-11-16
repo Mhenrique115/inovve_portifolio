@@ -378,7 +378,7 @@ body {
     background: rgba(212, 175, 55, 0.6);
 }
 
-/* Pause Button */
+/* Pause Button
 
 .carousel-pause-btn {
     position: absolute;
@@ -401,7 +401,7 @@ body {
     background: var(--primary-color);
     opacity: 1;
     transform: scale(1.05);
-}
+} */
 
 /* Counter */
 
@@ -627,7 +627,7 @@ body {
     }
 
     .logo-text {
-        font-size: 18px;
+        width: 70px;
     }
 
     .hero {
@@ -635,12 +635,11 @@ body {
     }
 
     .hero-title {
-        font-size: 36px;
-        letter-spacing: 2px;
+        width: 350px;
     }
 
     .hero-subtitle {
-        font-size: 16px;
+        font-size: 13px;
     }
 
     .cta-button {

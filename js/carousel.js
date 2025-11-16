@@ -5,24 +5,60 @@
 const carouselItems = [
     {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200&h=675&fit=crop',
+        src: 'assets/imgs/cdj1.jpg',
+        title: 'Marcos Deejay'
+    },
+    {
+        type: 'image',
+        src: 'assets/imgs/capela.jpg',
         title: 'Celebração em Estilo'
     },
     {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=675&fit=crop',
-        title: 'Evento Corporativo Premium'
+        src: 'assets/imgs/15 Anos Maria Clara1.jpg',
+        title: '15 Anos Maria Clara'
     },
     {
-        type: 'iframe',
-        src: 'https://www.youtube.com/embed/H0X58sRxtXk?autoplay=1&controls=1&mute=1',
-        title: 'Festa de Aniversário Inesquecível'
+        type: 'image',
+        src: 'assets/imgs/15 Anos Maria Clara2.jpg',
+        title: '15 Anos Maria Clara'
     },
     {
-        type: 'iframe',
-        src: 'https://www.youtube.com/embed/aJ6AhWTEv60?autoplay=1&controls=1&mute=1',
-        title: 'Vídeo Especial 2'
-    }
+        type: 'image',
+        src: 'assets/imgs/15 Anos Maria Clara3.jpg',
+        title: '15 Anos Maria Clara'
+    },
+    {
+        type: 'image',
+        src: 'assets/imgs/Casamento Laryssa e Luiz Otávio1.jpg',
+        title: 'Casamento Laryssa e Luiz Otávio'
+    },
+    {
+        type: 'image',
+        src: 'assets/imgs/Casamento Laryssa e Luiz Otávio2.jpg',
+        title: 'Casamento Laryssa e Luiz Otávio'
+    },
+    {
+        type: 'video',
+        src: 'assets/videos/videolocal1.mp4',
+        title: 'Inovve Som e Iluminação'
+    },
+    {
+        type: 'video',
+        src: 'assets/videos/videolocal2.mp4',
+        title: 'Inovve Som e Iluminação'
+    },
+    {
+        type: 'video',
+        src: 'assets/videos/videolocal3.mp4',
+        title: 'Inovve Som e Iluminação'
+    },
+    // {
+    //     type: 'iframe',
+    //     src: 'https://www.youtube.com/embed/aJ6AhWTEv60?autoplay=1&controls=1&mute=1',
+    //     title: 'exemplo de vídeo YouTube'
+    // },
+
 ];
 
 // ===========================
@@ -33,7 +69,7 @@ let currentIndex = 0;
 let autoPlayInterval = null;
 let isVideoPlaying = false;
 let isCarouselPaused = false;
-const AUTO_PLAY_INTERVAL = 5000; // 5 segundos
+const AUTO_PLAY_INTERVAL = 10000; // 10 segundos
 
 // ===========================
 // INICIALIZAÇÃO
@@ -79,6 +115,18 @@ function initCarousel() {
                     </iframe>
                 </div>`;
         }
+        else if (item.type === 'video') {
+            content = `
+                    <video 
+                        class="carousel-video"
+                        src="${item.src}"
+                        muted
+                        preload="auto"
+                        playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    </video>`;
+        }
+
 
         itemDiv.innerHTML =             `${content}
             <div class="carousel-item-overlay">
@@ -173,6 +221,28 @@ function updateCarousel() {
         }
     });
 
+    // Controle do vídeo local
+    if (currentItem.type === 'video') {
+        const video = document.querySelector('.carousel-item.active .carousel-video');
+        if (video) {
+            video.muted = false;
+            video.play().catch(() => {});
+        }
+    }
+
+    // Pausar vídeos de slides inativos
+    carouselItems.forEach((item, index) => {
+        if (item.type === 'video' && index !== currentIndex) {
+            const vid = document.querySelector(`.carousel-item:nth-child(${index+1}) .carousel-video`);
+            if (vid) {
+                vid.pause();
+                vid.currentTime = 0;
+                vid.muted = true;
+            }
+        }
+    });
+
+
     const dots = document.querySelectorAll('.carousel-dot');
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
@@ -180,6 +250,9 @@ function updateCarousel() {
 
     updateSlideCounter();
 }
+
+
+
 
 function updateSlideCounter() {
     const currentSlide = document.getElementById('currentSlide');
@@ -192,24 +265,24 @@ function startAutoPlay() {
     }
 }
 
-function toggleCarouselPause() {
-    isCarouselPaused = !isCarouselPaused;
-    if (isCarouselPaused) stopAutoPlay();
-    else startAutoPlay();
+// function toggleCarouselPause() {
+//     isCarouselPaused = !isCarouselPaused;
+//     if (isCarouselPaused) stopAutoPlay();
+//     else startAutoPlay();
 
-    const pauseBtn = document.getElementById('pauseBtn');
-    if (pauseBtn) {
-        pauseBtn.textContent = isCarouselPaused ? 'Retomar' : 'Pausar';
-        pauseBtn.style.opacity = isCarouselPaused ? '1' : '0.7';
-    }
-}
+//     const pauseBtn = document.getElementById('pauseBtn');
+//     if (pauseBtn) {
+//         pauseBtn.textContent = isCarouselPaused ? 'Retomar' : 'Pausar';
+//         pauseBtn.style.opacity = isCarouselPaused ? '1' : '0.7';
+//     }
+// }
 
-function stopAutoPlay() {
-    if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-    }
-}
+// function stopAutoPlay() {
+//     if (autoPlayInterval) {
+//         clearInterval(autoPlayInterval);
+//         autoPlayInterval = null;
+//     }
+// }
 
 function resetAutoPlay() {
     stopAutoPlay();
@@ -245,3 +318,4 @@ function setupEventListeners() {
         if (event.key === 'ArrowRight') nextSlide();
     });
 }
+
